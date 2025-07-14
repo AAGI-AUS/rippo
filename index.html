@@ -72,10 +72,28 @@
 
 <p>The goal of {rippo} is to ease data entry and tracking of AAGI-CU Intellectual Property and Project Outputs (IPPO) for reporting purposes.</p>
 <div class="section level2">
-<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+<h2 id="installation-instructions">Installation instructions<a class="anchor" aria-label="anchor" href="#installation-instructions"></a>
 </h2>
-<p>You can install the development version of {rippo} like so:</p>
+<p>{rippo} is available through the <a href="https://r-universe.dev/search" class="external-link">R-Universe</a> with pre-built binaries (this is the easy way).</p>
+<p>To get started:</p>
+<div class="section level3">
+<h3 id="enable-this-universe">Enable this universe<a class="anchor" aria-label="anchor" href="#enable-this-universe"></a>
+</h3>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span>    maelle <span class="op">=</span> <span class="st">'https://aagi-aus.r-universe.dev'</span>,</span>
+<span>    CRAN <span class="op">=</span> <span class="st">'https://cloud.r-project.org'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="install">Install<a class="anchor" aria-label="anchor" href="#install"></a>
+</h3>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"rippo"</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="the-harder-way">The hard(er) way<a class="anchor" aria-label="anchor" href="#the-harder-way"></a>
+</h3>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">o</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span><span class="op">)</span> <span class="co"># store default options</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>pkg.build_vignettes <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
@@ -86,11 +104,12 @@
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span><span class="va">o</span><span class="op">)</span> <span class="co"># reset options</span></span></code></pre></div>
 </div>
+</div>
 <div class="section level2">
 <h2 id="using-rippo-for-generating-your-project-ippo-reports">Using {rippo} for generating your project IPPO reports<a class="anchor" aria-label="anchor" href="#using-rippo-for-generating-your-project-ippo-reports"></a>
 </h2>
 <p>{rippo} includes a Shiny web app to make interfacing with the IPPO tables simpler. Once {rippo} is installed you can run the web app like so:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/AAGI-AUS/rippo" class="external-link">rippo</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="reference/run_IPPO_app.html">run_IPPO_app</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>The app currently has the following features:</p>
@@ -134,7 +153,7 @@
 <code><a href="reference/create_ippo_report.html">create_ippo_report()</a></code>.</li>
 </ol>
 <p>The former, <code><a href="reference/list_ippo_tables.html">list_ippo_tables()</a></code>, creates a nested list object of all the IPPO tables from each project that is ordered by project code and Tables 1-5 (excluding any tables that do not have data entries). The latter, <code><a href="reference/create_ippo_report.html">create_ippo_report()</a></code>, takes the nested list of all IPPO tables and generates an MS Word document output for reporting to GRDC. This function allows for providing an existing MS Word document and appending values to it. This is useful where, as is the case for Curtin, an overarching IPPO register exists for AAGI-CU project IP and outputs that do not fall into service and support projects, upskilling and awareness projects or research and development activities. This overarching document can be read in and the remainder of the individual project IPPO details can be both read in and appended in project order and saved to the GRDC Box folder for reporting like so.</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># for macOS with GRDC Box synced locally</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://fs.r-lib.org" class="external-link">fs</a></span><span class="op">)</span></span>
 <span><span class="va">sp</span> <span class="op">&lt;-</span> <span class="st">"CU"</span> <span class="co"># strategic partner for report</span></span>
