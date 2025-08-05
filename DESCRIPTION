@@ -1,6 +1,6 @@
 Package: rippo
 Title: Simplify AAGI-CU IPPO Register Updates
-Version: 1.0.1
+Version: 1.0.2
 Authors@R: c(
     person("Adam H.", "Sparks", , "adam.sparks@curtin.edu.au", role = c("cre", "aut"),
            comment = c(ORCID = "0000-0002-0061-8359")),
