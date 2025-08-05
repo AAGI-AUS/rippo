@@ -1,3 +1,15 @@
+# rippo 1.0.2
+
+## Bug fixes
+
+* Removed duplicate code blocks which caused the IPPO app to crash.
+* Amended some fringe issues when importing an existing register.
+
+## Minor changes
+
+* Adjusted the formatting of the final template to align with expected format.
+* Added additional R packages to the database file.
+
 # rippo 1.0.1
 
 ## Bug fixes
