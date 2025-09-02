@@ -121,7 +121,6 @@ tl <- list_ippo_tables(
  )
 
 create_ippo_report(tables_list = tl,
-                   infile = ippo_doc,
                    outfile = ippo_doc,
                    sp = sp)
 ```
