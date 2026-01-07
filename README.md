@@ -97,7 +97,7 @@ Other ways of specifying this list will not be identified.
 
 ## Using {rippo} for generating whole IPPO registers for reporting
 
-{rippo} includes two functions that are used to generate a unified Word document of the IPPO.
+{rippo} includes two functions that are used to generate a unified Word document of the IPPO from a standard Excel template that is included in `inst/assets/AAGI-CU-XXXXXXX-XXXXXX - Support and Services IPPO Register Template` as an example for you to refer to and reuse.
 
 1. `list_ippo_tables()` and
 2. `create_ippo_report()`.
