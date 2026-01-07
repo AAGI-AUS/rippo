@@ -107,7 +107,7 @@ undertaken).
 
 {rippo} includes two functions that are used to generate a unified Word
 document of the IPPO from a standard Excel template that is included in
-`inst/assets/AAGI-CU-XXXXXXX-XXXXXX - Support and Services IPPO Register Template`
+[`inst/assets/AAGI-CU-XXXXXXX-XXXXXX - Support and Services IPPO Register Template`](https://github.com/AAGI-AUS/rippo/raw/refs/heads/main/inst/assets/AAGI-CU-XXXXXXX-XXXXXX%20-%20Support%20and%20Services%20IPPO%20Register%20Template.xlsx)
 as an example for you to refer to and reuse.
 
 1.  [`list_ippo_tables()`](https://aagi-aus.github.io/rippo/reference/list_ippo_tables.md)
