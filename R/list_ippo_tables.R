@@ -50,10 +50,16 @@ list_ippo_tables <- function(dir_path_in, sp) {
         !grepl("Projects/AAGI student files", active, fixed = TRUE)
     ]
     active <- active[!grepl("Projects/AAGI_informatics", active, fixed = TRUE)]
+    active <- active[
+        !grepl("Projects/AAGI_student_files", active, fixed = TRUE)
+    ]
     active <- active[!grepl("Projects/RiskWise Program", active, fixed = TRUE)]
 
     # point to the IPPO registers
-    ippo_paths <- fs::path(c(completed, active), "/1 Documentation/")
+    ippo_paths <- fs::path(
+        c(completed, active),
+        "1 Documentation"
+    )
     ippo_registers <- lapply(
         X = ippo_paths,
         FUN = fs::dir_ls,
