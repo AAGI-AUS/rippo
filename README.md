@@ -113,7 +113,7 @@ This overarching document can be read in and the remainder of the individual pro
 library(fs)
 library(rippo)
 sp <- "CU" # strategic partner for report
-R_drive <- "/Volumes/dmp/A-J/AAGI_CCDM_CBADA-GIBBEM-SE21982/"
+R_drive <- "/Volumes/dmp/A-J/AAGI_CCDM_CBADA-GIBBEM-SE21982/Projects"
 ippo_doc <- "~/Library/CloudStorage/Box-Box/AAGI-GRDC/AAGI IPPO Register/AAGI-CU-IPPO Register.docx"
 
 tl <- list_ippo_tables(
