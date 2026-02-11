@@ -118,6 +118,7 @@ This overarching document can be read in and the remainder of the individual pro
 ```r 
 # for macOS with GRDC Box synced locally
 library(fs)
+library(rippo)
 sp <- "CU" # strategic partner for report
 R_drive <- "/Volumes/dmp/A-J/AAGI_CCDM_CBADA-GIBBEM-SE21982/"
 ippo_doc <- "~/Library/CloudStorage/Box-Box/AAGI-GRDC/AAGI IPPO Register/AAGI-CU-IPPO Register.docx"
