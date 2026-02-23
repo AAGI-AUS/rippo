@@ -27,12 +27,12 @@ Source:
 [`DESCRIPTION`](https://github.com/AAGI-AUS/rippo/blob/main/DESCRIPTION)
 
 Sparks A, Cao Z, Thorne B (2026). *rippo: Simplify AAGI-CU IPPO Register
-Updates*. R package version 1.0.2, <https://github.com/AAGI-AUS/rippo>.
+Updates*. R package version 1.0.3, <https://github.com/AAGI-AUS/rippo>.
 
     @Manual{,
       title = {rippo: Simplify AAGI-CU IPPO Register Updates},
       author = {Adam H. Sparks and Zhanglong Cao and Braden Thorne},
       year = {2026},
-      note = {R package version 1.0.2},
+      note = {R package version 1.0.3},
       url = {https://github.com/AAGI-AUS/rippo},
     }
