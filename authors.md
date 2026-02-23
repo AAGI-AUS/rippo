@@ -24,7 +24,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/AAGI-AUS/rippo/blob/main/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/AAGI-AUS/rippo/blob/v1.0.3/DESCRIPTION)
 
 Sparks A, Cao Z, Thorne B (2026). *rippo: Simplify AAGI-CU IPPO Register
 Updates*. R package version 1.0.3, <https://github.com/AAGI-AUS/rippo>.
