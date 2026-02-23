@@ -1,5 +1,9 @@
 # Changelog
 
+## rippo 1.0.3
+
+- Internal change to devtool documentation, no user-facing changes.
+
 ## rippo 1.0.2
 
 ### Bug fixes
