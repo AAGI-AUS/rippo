@@ -44,6 +44,7 @@ Suggests:
     testthat (>= 3.0.0)
 Remotes:
     AAGI-AUS/AAGIThemes
+Config/Needs/build: maelle/devtag2
 Config/roxyglobals/filename: generated-globals.R
 Config/roxyglobals/unique: FALSE
 Config/roxylint: list(linters = roxylint::tidy)
@@ -54,7 +55,7 @@ Language: en-AU
 NeedsCompilation: no
 Roxygen: list(markdown = TRUE, roclets = c("collate", "namespace", "rd",
     "roxyglobals::global_roclet", "roxylint::roxylint",
-    "devtag::dev_roclet"))
+    "devtag2::super_rd"))
 RoxygenNote: 7.3.3
 X-schema.org-applicationCategory: Tools
 X-schema.org-isPartOf: 
