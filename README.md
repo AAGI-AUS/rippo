@@ -23,9 +23,12 @@ To get started:
 ### Enable this universe
 
 ```r
-options(repos = c(
-    maelle = 'https://aagi-aus.r-universe.dev',
-    CRAN = 'https://cloud.r-project.org'))
+options(
+    repok = c(
+        aagi = 'https://aagi-aus.r-universe.dev',
+        CRAN = 'https://cloud.r-project.org'
+    )
+)
 ```
 
 ### Install
@@ -41,8 +44,9 @@ o <- options() # store default options
 
 options(pkg.build_vignettes = TRUE)
 
-if (!require("pak"))
-  install.packages("pak")
+if (!require("pak")) {
+    install.packages("pak")
+}
 pak::pak("AAGI-AUS/rippo")
 
 options(o) # reset options
@@ -117,13 +121,11 @@ R_drive <- "/Volumes/dmp/A-J/AAGI_CCDM_CBADA-GIBBEM-SE21982/Projects"
 ippo_doc <- "~/Library/CloudStorage/Box-Box/AAGI-GRDC/AAGI IPPO Register/AAGI-CU-IPPO Register.docx"
 
 tl <- list_ippo_tables(
-   dir_path_in = path(R_drive),
-   sp = sp
- )
+    dir_path_in = path(R_drive),
+    sp = sp
+)
 
-create_ippo_report(tables_list = tl,
-                   outfile = ippo_doc,
-                   sp = sp)
+create_ippo_report(tables_list = tl, outfile = ippo_doc, sp = sp)
 ```
 
 ## Contributions 
