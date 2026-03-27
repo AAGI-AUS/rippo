@@ -16,7 +16,7 @@ To get started:
 ``` r
 options(
     repok = c(
-        aagi = 'https://aagi-aus.r-universe.dev',
+        AAGI = 'https://aagi-aus.r-universe.dev',
         CRAN = 'https://cloud.r-project.org'
     )
 )
