@@ -24,7 +24,7 @@ To get started:
 
 ```r
 options(
-    repok = c(
+    repo = c(
         AAGI = 'https://aagi-aus.r-universe.dev',
         CRAN = 'https://cloud.r-project.org'
     )
