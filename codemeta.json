@@ -14,7 +14,7 @@
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.5.2 (2025-10-31)",
+  "runtimePlatform": "R version 4.6.0 (2026-04-24)",
   "author": [
     {
       "@type": "Person",
@@ -41,18 +41,10 @@
   "copyrightHolder": [
     {
       "@type": "Organization",
-      "name": "Curtin University"
-    },
-    {
-      "@type": "Organization",
       "name": "Grains Research and Development Corporation"
     }
   ],
   "funder": [
-    {
-      "@type": "Organization",
-      "name": "Curtin University"
-    },
     {
       "@type": "Organization",
       "name": "Grains Research and Development Corporation"
@@ -296,7 +288,7 @@
   },
   "applicationCategory": "Tools",
   "isPartOf": "https://grdc.com.au/research/partnerships-and-initiatives/strategic-partnerships/aagi",
-  "fileSize": "299.639KB",
+  "fileSize": "299.483KB",
   "releaseNotes": "https://github.com/AAGI-AUS/rippo/blob/main/NEWS.md",
   "readme": "https://github.com/AAGI-AUS/rippo/blob/main/README.md",
   "contIntegration": "https://github.com/AAGI-AUS/rippo/actions/workflows/R-CMD-check.yaml"
