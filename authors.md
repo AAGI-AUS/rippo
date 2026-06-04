@@ -11,11 +11,6 @@
 - **Braden Thorne**. Author. [](https://orcid.org/0000-0003-0497-1675)  
   Contributed the Shiny app for generating IPPO register tables.
 
-- **Curtin University**. Funder, copyright holder.
-  [![ROR](https://raw.githubusercontent.com/ror-community/ror-logos/main/ror-icon-rgb.svg)](https://ror.org/02n415q13)  
-  Provided support through Adam Sparks's, Zhanglong Cao's and Braden
-  Thorne's time.
-
 - **Grains Research and Development Corporation**. Funder, copyright
   holder.
   [![ROR](https://raw.githubusercontent.com/ror-community/ror-logos/main/ror-icon-rgb.svg)](https://ror.org/02xwr1996)  

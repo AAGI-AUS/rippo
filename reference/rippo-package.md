@@ -21,6 +21,9 @@ Useful links:
 
 Authors:
 
+- Adam H. Sparks <adam.sparks@curtin.edu.au>
+  ([ORCID](https://orcid.org/0000-0002-0061-8359))
+
 - Zhanglong Cao <zhanglong.cao@curtin.edu.au>
   ([ORCID](https://orcid.org/0000-0001-6667-9392)) (Wrote original
   \`create_table_3()\`.)
@@ -30,10 +33,6 @@ Authors:
   Shiny app for generating IPPO register tables.)
 
 Other contributors:
-
-- Curtin University ([ROR](https://ror.org/02n415q13)) (Provided support
-  through Adam Sparks's, Zhanglong Cao's and Braden Thorne's time.)
-  \[funder, copyright holder\]
 
 - Grains Research and Development Corporation
   ([ROR](https://ror.org/02xwr1996)) (GRDC Project CUR2210-005OPX

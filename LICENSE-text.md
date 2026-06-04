@@ -1,4 +1,4 @@
 # License
 
-    YEAR: 2025
-    COPYRIGHT HOLDER: rippo authors
+    YEAR: 2026
+    COPYRIGHT HOLDER: Grains Research and Development Corporation

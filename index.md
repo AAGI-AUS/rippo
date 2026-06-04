@@ -14,6 +14,7 @@ To get started:
 ### Enable this universe
 
 ``` r
+
 options(
     repo = c(
         AAGI = 'https://aagi-aus.r-universe.dev',
@@ -25,12 +26,14 @@ options(
 ### Install
 
 ``` r
+
 install.packages("rippo")
 ```
 
 ### The hard(er) way
 
 ``` r
+
 o <- options() # store default options
 
 options(pkg.build_vignettes = TRUE)
@@ -50,6 +53,7 @@ tables simpler. Once {rippo} is installed you can run the web app like
 so:
 
 ``` r
+
 library(rippo)
 run_IPPO_app()
 ```
@@ -136,6 +140,7 @@ appended in project order and saved to the GRDC Box folder for reporting
 like so.
 
 ``` r
+
 # for macOS with GRDC Box synced locally
 library(fs)
 library(rippo)
