@@ -22,13 +22,13 @@ Useful links:
 
 Authors:
 \itemize{
+  \item Adam H. Sparks \email{adam.sparks@curtin.edu.au} (\href{https://orcid.org/0000-0002-0061-8359}{ORCID})
   \item Zhanglong Cao \email{zhanglong.cao@curtin.edu.au} (\href{https://orcid.org/0000-0001-6667-9392}{ORCID}) (Wrote original `create_table_3()`.)
   \item Braden Thorne \email{braden.thorne@curtin.edu.au} (\href{https://orcid.org/0000-0003-0497-1675}{ORCID}) (Contributed the Shiny app for generating IPPO register tables.)
 }
 
 Other contributors:
 \itemize{
-  \item Curtin University (\href{https://ror.org/02n415q13}{ROR}) (Provided support through Adam Sparks's, Zhanglong Cao's and Braden Thorne's time.) [funder, copyright holder]
   \item Grains Research and Development Corporation (\href{https://ror.org/02xwr1996}{ROR}) (GRDC Project CUR2210-005OPX (AAGI-CU)) [funder, copyright holder]
 }
 

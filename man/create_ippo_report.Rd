@@ -44,7 +44,7 @@ create_ippo_report(tables_list = tl,
 \dontshow{\}) # examplesIf}
 }
 \seealso{
-Other reporting: 
-\code{\link{list_ippo_tables}()}
+Other reporting:
+\code{\link[=list_ippo_tables]{list_ippo_tables()}}
 }
 \concept{reporting}

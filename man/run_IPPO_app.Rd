@@ -19,7 +19,7 @@ run_IPPO_app()
 }
 }
 \seealso{
-Other create IPPO: 
-\code{\link{create_table_3}()}
+Other create IPPO:
+\code{\link[=create_table_3]{create_table_3()}}
 }
 \concept{create IPPO}

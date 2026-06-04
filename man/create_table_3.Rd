@@ -54,8 +54,8 @@ create_table_3()
 \dontshow{\}) # examplesIf}
 }
 \seealso{
-Other create IPPO: 
-\code{\link{run_IPPO_app}()}
+Other create IPPO:
+\code{\link[=run_IPPO_app]{run_IPPO_app()}}
 }
 \author{
 Zhanglong Cao, \email{zhanglong.cao@curtin.edu.au}, and Adam H.

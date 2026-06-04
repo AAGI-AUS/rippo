@@ -36,7 +36,7 @@ creates a list of tables corresponding to Tables 1-5 in the \acronym{AAGI}
 \dontshow{\}) # examplesIf}
 }
 \seealso{
-Other reporting: 
-\code{\link{create_ippo_report}()}
+Other reporting:
+\code{\link[=create_ippo_report]{create_ippo_report()}}
 }
 \concept{reporting}
