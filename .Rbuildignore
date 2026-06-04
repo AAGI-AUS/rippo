@@ -1,15 +1,11 @@
 ^LICENSE\.md$
 ^README\.Rmd$
 ^man/dot-filter_list\.Rd$
-^.*\.Rproj$
-^\.Rproj\.user$
 ^CODE_OF_CONDUCT\.md$
 ^codemeta\.json$
 ^\.github$
 ^air\.toml$
 
-# flir files
-^flir$
 ^_pkgdown\.yml$
 ^docs$
 pkgdown$
