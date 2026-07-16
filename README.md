@@ -12,7 +12,7 @@ output: github_document
 [![R-CMD-check](https://github.com/AAGI-AUS/rippo/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/AAGI-AUS/rippo/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
-The goal of {rippo} is to ease data entry and tracking of AAGI-CU Intellectual Property and Project Outputs (IPPO) for reporting purposes.
+The goal of {rippo} is to ease data entry and tracking of AAGI Intellectual Property and Project Outputs (IPPO) for reporting purposes.
 
 ## Installation instructions
 
