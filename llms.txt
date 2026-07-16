@@ -1,6 +1,6 @@
 # rippo
 
-The goal of {rippo} is to ease data entry and tracking of AAGI-CU
+The goal of {rippo} is to ease data entry and tracking of AAGI
 Intellectual Property and Project Outputs (IPPO) for reporting purposes.
 
 ## Installation instructions
