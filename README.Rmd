@@ -4,7 +4,9 @@ output: github_document
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-```{r, include = FALSE}
+```{r}
+#| include: false
+
 knitr::opts_chunk$set(
     collapse = TRUE,
     comment = "#>",
@@ -16,8 +18,7 @@ knitr::opts_chunk$set(
 # rippo
 
 <!-- badges: start -->
-[![R-CMD-check](https://github.com/AAGI-AUS/rippo/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/AAGI-AUS/rippo/actions/workflows/R-CMD-check.yaml)
-<!-- badges: end -->
+[![R-CMD-check](https://github.com/AAGI-AUS/rippo/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/AAGI-AUS/rippo/actions/workflows/R-CMD-check.yaml) <!-- badges: end -->
 
 The goal of {rippo} is to ease data entry and tracking of AAGI-CU Intellectual Property and Project Outputs (IPPO) for reporting purposes.
 
@@ -47,16 +48,10 @@ install.packages("rippo")
 ### The hard(er) way
 
 ```r
-o <- options() # store default options
-
-options(pkg.build_vignettes = TRUE)
-
 if (!require("pak")) {
     install.packages("pak")
 }
 pak::pak("AAGI-AUS/rippo")
-
-options(o) # reset options
 ```
 
 ## Using {rippo} for generating your project IPPO reports
@@ -93,18 +88,17 @@ If you believe there is IP that is used frequently by yourself and others and sh
 While the uploader works well on IPPO files generated using the app, older files that do not conform to the same structure can run into issues.
 When uploading your existing IPPO register, be aware of the following restrictions (this list may change as further development is undertaken).
 
-
 - If the description of background IP in the imported document does not match *exactly* any of the descriptions in the catalog, it may be identified as a novel piece of IP.
-This can be confusing for packages where the name may be the same but they are identified as different due to discrepancies in the description.
-If you specify the name of the background IP in curly braces followed by a space at the start of the description (_e.g._, `{BIPName} Description of BIP.`), the uploader will recognise this as a name for the background IP and will check that against the existing records as well.
-We recommend avoiding the use of curly braces for other purposes in the background IP descriptions.
+  This can be confusing for packages where the name may be the same but they are identified as different due to discrepancies in the description.
+  If you specify the name of the background IP in curly braces followed by a space at the start of the description (*e.g.*, `{BIPName} Description of BIP.`), the uploader will recognise this as a name for the background IP and will check that against the existing records as well.
+  We recommend avoiding the use of curly braces for other purposes in the background IP descriptions.
 
 - Dates are expected to be formatted as date objects in Excel.
-If stored as text (or other) data types, this may cause issues upon loading.
+  If stored as text (or other) data types, this may cause issues upon loading.
 
 - The links between outputs and background IP are expected to come as `Table X, Lines Y` where `X` is the relevant table and `Y` is a list corresponding to the rows in that table.
-By default the app will save this as a list of comma separated integers (_e.g._, `Table 1, Lines 1,2,3,4,8`), however for the purposes of reading in files it will recognise collapsed lists using colons and hyphens (_e.g._, `Table 1 Lines 1:4, 8` and `Table 1 Lines 1-4, 8`).
-Other ways of specifying this list will not be identified.
+  By default the app will save this as a list of comma separated integers (*e.g.*, `Table 1, Lines 1,2,3,4,8`), however for the purposes of reading in files it will recognise collapsed lists using colons and hyphens (*e.g.*, `Table 1 Lines 1:4, 8` and `Table 1 Lines 1-4, 8`).
+  Other ways of specifying this list will not be identified.
 
 ## Using {rippo} for generating whole IPPO registers for reporting
 
@@ -119,7 +113,7 @@ This function allows for providing an existing MS Word document and appending va
 This is useful where, as is the case for Curtin, an overarching IPPO register exists for AAGI-CU project IP and outputs that do not fall into service and support projects, upskilling and awareness projects or research and development activities.
 This overarching document can be read in and the remainder of the individual project IPPO details can be both read in and appended in project order and saved to the GRDC Box folder for reporting like so.
 
-```r 
+```r
 # for macOS with GRDC Box synced locally
 library(fs)
 library(rippo)
@@ -135,7 +129,7 @@ tl <- list_ippo_tables(
 create_ippo_report(tables_list = tl, outfile = ippo_doc, sp = sp)
 ```
 
-## Contributions 
+## Contributions
 
 All contributions are appreciated, but please make sure to follow the [Contribution Guidelines](CONTRIBUTING.md).
 
