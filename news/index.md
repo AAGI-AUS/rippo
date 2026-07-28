@@ -1,5 +1,17 @@
 # Changelog
 
+## rippo 1.0.4
+
+### Minor changes
+
+- [`list_ippo_tables()`](https://aagi-aus.github.io/rippo/reference/list_ippo_tables.md)
+  now includes a table, `Validation`, that clearly describes issues with
+  IPPO registers so that they can be corrected at the source.
+- [`list_ippo_tables()`](https://aagi-aus.github.io/rippo/reference/list_ippo_tables.md)
+  now provides a clear error message when stopping on a malformed IPPO
+  file with the filename, sheet and cell that needs to be fixed.
+- Update the internal Word document template SP logo block.
+
 ## rippo 1.0.3
 
 - Internal change to devtool documentation, no user-facing changes.

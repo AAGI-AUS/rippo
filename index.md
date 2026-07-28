@@ -1,6 +1,6 @@
 # rippo
 
-The goal of {rippo} is to ease data entry and tracking of AAGI
+The goal of {rippo} is to ease data entry and tracking of AAGI-CU
 Intellectual Property and Project Outputs (IPPO) for reporting purposes.
 
 ## Installation instructions
@@ -34,16 +34,10 @@ install.packages("rippo")
 
 ``` r
 
-o <- options() # store default options
-
-options(pkg.build_vignettes = TRUE)
-
 if (!require("pak")) {
     install.packages("pak")
 }
 pak::pak("AAGI-AUS/rippo")
-
-options(o) # reset options
 ```
 
 ## Using {rippo} for generating your project IPPO reports
