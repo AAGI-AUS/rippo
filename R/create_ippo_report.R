@@ -31,73 +31,73 @@
 #' @export
 
 create_ippo_report <- function(tables_list, sp, outfile) {
-  rlang::arg_match(
-    arg = sp,
-    values = c(
-      "Adelaide University",
-      "AU",
-      "Curtin University",
-      "CU",
-      "University of Queensland",
-      "UQ"
+    rlang::arg_match(
+        arg = sp,
+        values = c(
+            "Adelaide University",
+            "AU",
+            "Curtin University",
+            "CU",
+            "University of Queensland",
+            "UQ"
+        )
     )
-  )
 
-  ippo_list <- tables_list$ippo_tables
+    ippo_list <- tables_list$ippo_tables
 
-  # import base AAGI IPPO Word template with logos, etc.
-  doc <- officer::read_docx(
-    path = system.file(
-      "assets/ippo_report.docx",
-      package = "rippo",
-      mustWork = TRUE
+    # import base AAGI IPPO Word template with logos, etc.
+    doc <- officer::read_docx(
+        path = system.file(
+            "assets/ippo_report.docx",
+            package = "rippo",
+            mustWork = TRUE
+        )
     )
-  )
 
-  # define global settings for flextable
-  flextable::set_flextable_defaults(
-    split = TRUE,
-    table_align = "center",
-    table.layout = "autofit",
-    fmt_date = "%Y-%m-%d",
-    fmt_datetime = "%Y-%m-%d",
-    font.size = 10L
-  )
+    # define global settings for flextable
+    flextable::set_flextable_defaults(
+        split = TRUE,
+        table_align = "center",
+        table.layout = "autofit",
+        fmt_date = "%Y-%m-%d",
+        fmt_datetime = "%Y-%m-%d",
+        font.size = 10L
+    )
 
-  # Add title of register with strategic partner named
-  doc <- officer::body_add_par(
-    doc,
-    value = sprintf(
-      "Intellectual Property and Project Output (IPPO) Register (%s)",
-      sp
-    ),
-    style = "Title"
-  )
-
-  # Loop through the nested list
-  for (group_name in names(ippo_list)) {
+    # Add title of register with strategic partner named
     doc <- officer::body_add_par(
-      doc,
-      value = group_name,
-      style = "heading 1"
+        doc,
+        value = sprintf(
+            "Intellectual Property and Project Output (IPPO) Register (%s)",
+            sp
+        ),
+        style = "Title"
     )
 
-    for (table_name in names(ippo_list[[group_name]])) {
-      doc <- officer::body_add_par(
-        doc,
-        value = table_name,
-        style = "heading 2"
-      )
+    # Loop through the nested list
+    for (group_name in names(ippo_list)) {
+        doc <- officer::body_add_par(
+            doc,
+            value = group_name,
+            style = "heading 1"
+        )
 
-      ft <- ippo_list[[group_name]][[table_name]] |>
-        flextable::flextable() |>
-        AAGIThemes::theme_ft_aagi()
+        for (table_name in names(ippo_list[[group_name]])) {
+            doc <- officer::body_add_par(
+                doc,
+                value = table_name,
+                style = "heading 2"
+            )
 
-      doc <- flextable::body_add_flextable(x = doc, value = ft)
+            ft <- ippo_list[[group_name]][[table_name]] |>
+                flextable::flextable() |>
+                AAGIThemes::theme_ft_aagi()
+
+            doc <- flextable::body_add_flextable(x = doc, value = ft)
+        }
     }
-  }
 
-  # Save the document
-  print(doc, target = outfile)
-  return(invisible(NULL))
+    # Save the document
+    print(doc, target = outfile)
+    return(invisible(NULL))
 }

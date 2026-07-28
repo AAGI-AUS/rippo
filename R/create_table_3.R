@@ -36,143 +36,143 @@
 #' @export
 
 create_table_3 <- function(
-  project_path = getwd(),
-  outfile = "1 documentation/table_3.csv",
-  aagi_project_code = "AAGI-ALL-SP-003",
-  quarto = FALSE,
-  digger = FALSE,
-  asreml = FALSE
+    project_path = getwd(),
+    outfile = "1 documentation/table_3.csv",
+    aagi_project_code = "AAGI-ALL-SP-003",
+    quarto = FALSE,
+    digger = FALSE,
+    asreml = FALSE
 ) {
-  # check if the path is a valid directory
-  if (!dir.exists(project_path)) {
-    cli::cli_abort("the specified path does not exist.")
-  }
-
-  # set the working directory to the specified path
-  withr::with_dir(project_path, setwd(project_path))
-
-  ### extract package information from cran database
-  db <- tools::CRAN_package_db()[, c(
-    "Package",
-    "Author",
-    "Description",
-    "License"
-  )]
-  pkgs <- unique(renv::dependencies()$Package)
-
-  out <- vector(mode = "list", length = length(pkgs))
-
-  for (pkg in pkgs) {
-    pkg_info <- db[db$Package == pkg, ]
-    if (nrow(pkg_info) > 0L) {
-      author_clean <- gsub("\\s*<[^>]+>", "", pkg_info$Author)
-      author_clean <- gsub("()", "", author_clean, fixed = TRUE)
-      author_clean <- gsub(
-        "\\s+",
-        " ",
-        gsub("\n", " ", author_clean, fixed = TRUE)
-      )
-      description_clean <- gsub(
-        "\\s*<[^>]+>",
-        "",
-        pkg_info$Description
-      )
-      description_clean <- gsub(
-        "()",
-        "",
-        description_clean,
-        fixed = TRUE
-      )
-      description_clean <- gsub(
-        "\\s+",
-        " ",
-        gsub("\n", " ", description_clean, fixed = TRUE)
-      )
-
-      out[[pkg]] <- data.frame(
-        V1 = aagi_project_code,
-        V2 = author_clean,
-        V3 = paste0(
-          "{",
-          pkg_info$Package,
-          "} ",
-          description_clean
-        ),
-        V4 = as.Date("2023-07-18"),
-        V5 = "",
-        V6 = paste0(
-          "{",
-          pkg_info$Package,
-          "} is made freely available for use and redistribution under the ",
-          pkg_info$License,
-          " licence"
-        ),
-        V7 = paste0(
-          "Subject to the terms of the ",
-          pkg_info$License,
-          " licence."
-        ),
-        stringsAsFactors = FALSE
-      )
+    # check if the path is a valid directory
+    if (!dir.exists(project_path)) {
+        cli::cli_abort("the specified path does not exist.")
     }
-  }
 
-  out <- dplyr::bind_rows(out)
+    # set the working directory to the specified path
+    withr::with_dir(project_path, setwd(project_path))
 
-  if (quarto) {
-    quarto <- tibble::new_tibble(
-      list(
-        V1 = aagi_project_code,
-        V2 = "Posit Software, PBC",
-        V3 = "Quarto, open-source tools for scientific and technical publishing",
-        V4 = as.Date("2023-07-18"),
-        V5 = "",
-        V6 = "Version 1.3 (and earlier) is licensed under the GNU GPL v2. Quarto version 1.4 is licensed under the MIT licence.",
-        V7 = "Subject to the terms of the licence under which the version was released."
-      )
-    )
-    out <- rbind(out, quarto)
-  }
+    ### extract package information from cran database
+    db <- tools::CRAN_package_db()[, c(
+        "Package",
+        "Author",
+        "Description",
+        "License"
+    )]
+    pkgs <- unique(renv::dependencies()$Package)
 
-  if (digger) {
-    digger <- tibble::new_tibble(
-      list(
-        V1 = aagi_project_code,
-        V2 = "Neil Coombes [aut, ctb]",
-        V3 = "{DiGGer}, searches for efficient experimental designs under specified blocking and correlation.",
-        V4 = as.Date("2023-07-18"),
-        V5 = "",
-        V6 = "NSW DPI freeware licence",
-        V7 = "Subject to the terms of the NSW DPI freeware licence."
-      )
-    )
-    out <- rbind(out, digger)
-  }
+    out <- vector(mode = "list", length = length(pkgs))
 
-  if (asreml) {
-    asremlr <- tibble::new_tibble(
-      list(
-        V1 = aagi_project_code,
-        V2 = "VSN International Ltd",
-        V3 = "{ASReml-R} Version 4 package is for conducting mixed model analysis in R.",
-        V4 = as.Date("2023-07-18"),
-        V5 = "",
-        V6 = "Commercial",
-        V7 = "Subject to the terms of the commercial licence."
-      )
-    )
-    out <- rbind(out, asremlr)
-  }
+    for (pkg in pkgs) {
+        pkg_info <- db[db$Package == pkg, ]
+        if (nrow(pkg_info) > 0L) {
+            author_clean <- gsub("\\s*<[^>]+>", "", pkg_info$Author)
+            author_clean <- gsub("()", "", author_clean, fixed = TRUE)
+            author_clean <- gsub(
+                "\\s+",
+                " ",
+                gsub("\n", " ", author_clean, fixed = TRUE)
+            )
+            description_clean <- gsub(
+                "\\s*<[^>]+>",
+                "",
+                pkg_info$Description
+            )
+            description_clean <- gsub(
+                "()",
+                "",
+                description_clean,
+                fixed = TRUE
+            )
+            description_clean <- gsub(
+                "\\s+",
+                " ",
+                gsub("\n", " ", description_clean, fixed = TRUE)
+            )
 
-  names(out) <-
-    c(
-      "AAGI Project Code",
-      "`Owner/s\nProvide details of owner(s) including legal entity name and ABN",
-      "Description",
-      "Date made available to Project",
-      "Name of party making Third Party IP available (if not the owner(s))",
-      "Arrangements applicable to the provision of Third Party IP for the Project",
-      "Restrictions / limitations on use for dissemination or Commercialisation of Project Outputs"
-    )
-  return(out)
+            out[[pkg]] <- data.frame(
+                V1 = aagi_project_code,
+                V2 = author_clean,
+                V3 = paste0(
+                    "{",
+                    pkg_info$Package,
+                    "} ",
+                    description_clean
+                ),
+                V4 = as.Date("2023-07-18"),
+                V5 = "",
+                V6 = paste0(
+                    "{",
+                    pkg_info$Package,
+                    "} is made freely available for use and redistribution under the ",
+                    pkg_info$License,
+                    " licence"
+                ),
+                V7 = paste0(
+                    "Subject to the terms of the ",
+                    pkg_info$License,
+                    " licence."
+                ),
+                stringsAsFactors = FALSE
+            )
+        }
+    }
+
+    out <- dplyr::bind_rows(out)
+
+    if (quarto) {
+        quarto <- tibble::new_tibble(
+            list(
+                V1 = aagi_project_code,
+                V2 = "Posit Software, PBC",
+                V3 = "Quarto, open-source tools for scientific and technical publishing",
+                V4 = as.Date("2023-07-18"),
+                V5 = "",
+                V6 = "Version 1.3 (and earlier) is licensed under the GNU GPL v2. Quarto version 1.4 is licensed under the MIT licence.",
+                V7 = "Subject to the terms of the licence under which the version was released."
+            )
+        )
+        out <- rbind(out, quarto)
+    }
+
+    if (digger) {
+        digger <- tibble::new_tibble(
+            list(
+                V1 = aagi_project_code,
+                V2 = "Neil Coombes [aut, ctb]",
+                V3 = "{DiGGer}, searches for efficient experimental designs under specified blocking and correlation.",
+                V4 = as.Date("2023-07-18"),
+                V5 = "",
+                V6 = "NSW DPI freeware licence",
+                V7 = "Subject to the terms of the NSW DPI freeware licence."
+            )
+        )
+        out <- rbind(out, digger)
+    }
+
+    if (asreml) {
+        asremlr <- tibble::new_tibble(
+            list(
+                V1 = aagi_project_code,
+                V2 = "VSN International Ltd",
+                V3 = "{ASReml-R} Version 4 package is for conducting mixed model analysis in R.",
+                V4 = as.Date("2023-07-18"),
+                V5 = "",
+                V6 = "Commercial",
+                V7 = "Subject to the terms of the commercial licence."
+            )
+        )
+        out <- rbind(out, asremlr)
+    }
+
+    names(out) <-
+        c(
+            "AAGI Project Code",
+            "`Owner/s\nProvide details of owner(s) including legal entity name and ABN",
+            "Description",
+            "Date made available to Project",
+            "Name of party making Third Party IP available (if not the owner(s))",
+            "Arrangements applicable to the provision of Third Party IP for the Project",
+            "Restrictions / limitations on use for dissemination or Commercialisation of Project Outputs"
+        )
+    return(out)
 }
