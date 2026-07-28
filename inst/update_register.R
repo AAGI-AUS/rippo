@@ -8,11 +8,11 @@ sp <- "CU" # strategic partner for report
 R_drive <- "/Volumes/dmp/A-J/AAGI_CCDM_CBADA-GIBBEM-SE21982/"
 
 tl <- list_ippo_tables(
-    dir_path_in = path(R_drive, "Projects"),
-    sp = sp
+  dir_path_in = path(R_drive, "Projects"),
+  sp = sp
 )
 create_ippo_report(
-    tables_list = tl,
-    outfile = "~/tmp/test_ippo.docx",
-    sp = sp
+  tables_list = tl,
+  outfile = "~/tmp/test_ippo.docx",
+  sp = sp
 )

@@ -11,15 +11,15 @@
 #' @family create IPPO
 #' @export
 run_IPPO_app <- function() {
-    appDir <- system.file("IPPO_app", package = "rippo", mustWork = TRUE)
+  appDir <- system.file("IPPO_app", package = "rippo", mustWork = TRUE)
 
-    if (!nzchar(appDir)) {
-        cli::cli_abort(
-            "Could not find {.code IPPO_app}. Try re-installing {.pkg rippo}."
-        )
-    } else if (interactive()) {
-        ### Can add a resource path here if required using shiny::addResourcePath('path', system.file('path', package = 'rippo'))
-        shiny::runApp(appDir)
-    }
-    (return(NULL))
+  if (!nzchar(appDir)) {
+    cli::cli_abort(
+      "Could not find {.code IPPO_app}. Try re-installing {.pkg rippo}."
+    )
+  } else if (interactive()) {
+    ### Can add a resource path here if required using shiny::addResourcePath('path', system.file('path', package = 'rippo'))
+    shiny::runApp(appDir)
+  }
+  (return(NULL))
 }
