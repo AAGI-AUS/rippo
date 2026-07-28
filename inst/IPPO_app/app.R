@@ -12,7 +12,7 @@ library(stringr)
 extract_BIP_numbers_on_load <- function(BIP_str) {
     curr_str <- BIP_str |>
         str_remove_all(" |s|\n") |>
-        str_split("Table")
+        str_split("Table", fixed = TRUE)
     curr_str <- curr_str[[1]][-1]
 
     output <- list(
@@ -23,7 +23,7 @@ extract_BIP_numbers_on_load <- function(BIP_str) {
 
     for (sub_str in curr_str) {
         curr_list <- str_extract(sub_str, "(?<=Line).*") |>
-            str_split(",")
+            str_split(",", fixed = TRUE)
         curr_list <- curr_list[[1]]
         for (sub_sub_str in curr_list) {
             if (str_detect(sub_sub_str, "-|:")) {
@@ -40,11 +40,11 @@ extract_BIP_numbers_on_load <- function(BIP_str) {
             }
         }
 
-        if (str_starts(sub_str, "1")) {
+        if (str_starts(sub_str, "1", fixed = TRUE)) {
             output$t1 <- as.numeric(curr_list)
-        } else if (str_starts(sub_str, "2")) {
+        } else if (str_starts(sub_str, "2", fixed = TRUE)) {
             output$t2 <- as.numeric(curr_list)
-        } else if (str_starts(sub_str, "3")) {
+        } else if (str_starts(sub_str, "3", fixed = TRUE)) {
             output$t3 <- as.numeric(curr_list)
         }
     }

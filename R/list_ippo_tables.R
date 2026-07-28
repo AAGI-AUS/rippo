@@ -497,11 +497,14 @@ list_ippo_tables <- function(dir_path_in, sp) {
 
     documentation_exists <- fs::dir_exists(ippo_paths_all)
 
-    if (any(!documentation_exists)) {
-        missing_documentation_projects <- project_names_all[
-            !documentation_exists
-        ]
-        missing_documentation_paths <- ippo_paths_all[!documentation_exists]
+    missing_documentation <- !documentation_exists
+
+    if (any(missing_documentation)) {
+        missing_documentation_projects <-
+            project_names_all[missing_documentation]
+
+        missing_documentation_paths <-
+            ippo_paths_all[missing_documentation]
 
         for (i in seq_along(missing_documentation_projects)) {
             add_validation_issue(
