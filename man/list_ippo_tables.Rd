@@ -27,10 +27,9 @@ creates a list of tables corresponding to Tables 1-5 in the \acronym{AAGI}
 \examples{
 \dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
  # for macOS
- library(fs)
  R_drive <- "/Volumes/dmp/A-J/AAGI_CCDM_CBADA-GIBBEM-SE21982/"
  list_ippo_tables(
-   dir_path_in = path(R_drive, "Projects"),
+   dir_path_in = fs::path(R_drive, "Projects"),
    sp = "CU"
  )
 \dontshow{\}) # examplesIf}
