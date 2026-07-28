@@ -8,13 +8,13 @@
   "codeRepository": "https://github.com/AAGI-AUS/rippo",
   "issueTracker": "https://github.com/AAGI-AUS/rippo/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.6.0 (2026-04-24)",
+  "runtimePlatform": "R version 4.6.1 (2026-06-24)",
   "author": [
     {
       "@type": "Person",
@@ -288,7 +288,7 @@
   },
   "applicationCategory": "Tools",
   "isPartOf": "https://grdc.com.au/research/partnerships-and-initiatives/strategic-partnerships/aagi",
-  "fileSize": "299.483KB",
+  "fileSize": "404.267KB",
   "releaseNotes": "https://github.com/AAGI-AUS/rippo/blob/main/NEWS.md",
   "readme": "https://github.com/AAGI-AUS/rippo/blob/main/README.md",
   "contIntegration": "https://github.com/AAGI-AUS/rippo/actions/workflows/R-CMD-check.yaml"
