@@ -10,8 +10,10 @@ SP
 app
 catalog
 csv
+devtool
 er
 funder
+infile
 recurses
 subfolders
 uploader
