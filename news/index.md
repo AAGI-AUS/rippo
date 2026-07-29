@@ -10,6 +10,8 @@
 - [`list_ippo_tables()`](https://aagi-aus.github.io/rippo/reference/list_ippo_tables.md)
   now provides a clear error message when stopping on a malformed IPPO
   file with the filename, sheet and cell that needs to be fixed.
+- [`list_ippo_tables()`](https://aagi-aus.github.io/rippo/reference/list_ippo_tables.md)
+  now captures and returns more meaningful warnings.
 - Update the internal Word document template SP logo block.
 
 ## rippo 1.0.3
