@@ -71,7 +71,6 @@ Zhanglong Cao, <zhanglong.cao@curtin.edu.au>, and Adam H. Sparks,
 
 ``` r
 if (FALSE) { # interactive()
-# after opening an RStudio project for a Service and Support Analysis
 
 create_table_3()
 }

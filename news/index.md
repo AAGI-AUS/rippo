@@ -1,5 +1,17 @@
 # Changelog
 
+## rippo 1.0.5
+
+### Minor changes
+
+- When creating Table 3, clarify FOSS licence restrictions rather than
+  referring to the terms of the licence.
+- When creating a list of tables using `list_ippo_tables`, the previous
+  vague text about the terms of licensing are replaced with more
+  descriptive text automatically for the IPPO register. This means that
+  the original spreadsheets don’t need to be changed, but going forward
+  new versions will use the new functionality upon creation.
+
 ## rippo 1.0.4
 
 ### Minor changes
