@@ -48,7 +48,6 @@ Quarto software.
 }
 \examples{
 \dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
-# after opening an RStudio project for a Service and Support Analysis
 
 create_table_3()
 \dontshow{\}) # examplesIf}
