@@ -8,57 +8,13 @@
   "codeRepository": "https://github.com/AAGI-AUS/rippo",
   "issueTracker": "https://github.com/AAGI-AUS/rippo/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
   "runtimePlatform": "R version 4.6.1 (2026-06-24)",
-  "author": [
-    {
-      "@type": "Person",
-      "givenName": "Adam H.",
-      "familyName": "Sparks",
-      "email": "adam.sparks@curtin.edu.au",
-      "@id": "https://orcid.org/0000-0002-0061-8359"
-    },
-    {
-      "@type": "Person",
-      "givenName": "Zhanglong",
-      "familyName": "Cao",
-      "email": "zhanglong.cao@curtin.edu.au",
-      "@id": "https://orcid.org/0000-0001-6667-9392"
-    },
-    {
-      "@type": "Person",
-      "givenName": "Braden",
-      "familyName": "Thorne",
-      "email": "braden.thorne@curtin.edu.au",
-      "@id": "https://orcid.org/0000-0003-0497-1675"
-    }
-  ],
-  "copyrightHolder": [
-    {
-      "@type": "Organization",
-      "name": "Grains Research and Development Corporation"
-    }
-  ],
-  "funder": [
-    {
-      "@type": "Organization",
-      "name": "Grains Research and Development Corporation"
-    }
-  ],
-  "maintainer": [
-    {
-      "@type": "Person",
-      "givenName": "Adam H.",
-      "familyName": "Sparks",
-      "email": "adam.sparks@curtin.edu.au",
-      "@id": "https://orcid.org/0000-0002-0061-8359"
-    }
-  ],
   "softwareSuggestions": [
     {
       "@type": "SoftwareApplication",
@@ -276,7 +232,7 @@
   },
   "applicationCategory": "Tools",
   "isPartOf": "https://grdc.com.au/research/partnerships-and-initiatives/strategic-partnerships/aagi",
-  "fileSize": "411.161KB",
+  "fileSize": "411.608KB",
   "releaseNotes": "https://github.com/AAGI-AUS/rippo/blob/main/NEWS.md",
   "readme": "https://github.com/AAGI-AUS/rippo/blob/main/README.md",
   "contIntegration": "https://github.com/AAGI-AUS/rippo/actions/workflows/R-CMD-check.yaml"

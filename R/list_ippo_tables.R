@@ -207,6 +207,16 @@ list_ippo_tables <- function(dir_path_in, sp) {
             "There is no requirement to distribute source code."
         )
 
+        mpl_text <- paste(
+            "Licensed under the Mozilla Public Licence 2.0.",
+            "Modified MPL-covered source files that are distributed must",
+            "remain available under the MPL licence.",
+            "However, larger works that merely incorporate MPL-licensed",
+            "components may be distributed under a different licence.",
+            "Dissemination or commercialisation of project outputs must",
+            "comply with the terms of the MPL licence."
+        )
+
         apache_text <- paste(
             "Licensed under the Apache 2.0 licence.",
             "Use, modification and redistribution are permitted, including",
@@ -234,6 +244,8 @@ list_ippo_tables <- function(dir_path_in, sp) {
                 x = x,
                 ignore.case = TRUE
             ) ~ mit_text,
+
+            grepl(pattern = "MPL", x = x, ignore.case = TRUE) ~ mpl_text,
 
             grepl(
                 pattern = "APACHE",

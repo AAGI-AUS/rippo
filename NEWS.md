@@ -1,3 +1,9 @@
+# rippo 1.0.6
+
+## Minor changes
+
+- Add MPL license
+
 # rippo 1.0.5
 
 ## Minor changes

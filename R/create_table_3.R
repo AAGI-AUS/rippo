@@ -265,6 +265,20 @@ licence_restrictions <- function(licence) {
         )
     }
 
+    if (grepl("MPL", licence_upper)) {
+        return(
+            paste(
+                "Licensed under the Mozilla Public Licence 2.0.",
+                "Modified MPL-covered source files that are distributed must",
+                "remain available under the MPL licence.",
+                "However, larger works that merely incorporate MPL-licensed",
+                "components may be distributed under a different licence.",
+                "Dissemination or commercialisation of project outputs must",
+                "comply with the terms of the MPL licence."
+            )
+        )
+    }
+
     if (grepl("CC BY", licence_upper)) {
         return(
             paste(
