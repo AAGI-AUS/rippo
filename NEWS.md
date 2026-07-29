@@ -4,6 +4,7 @@
 
 - `list_ippo_tables()` now includes a table, `Validation`, that clearly describes issues with IPPO registers so that they can be corrected at the source.
 - `list_ippo_tables()` now provides a clear error message when stopping on a malformed IPPO file with the filename, sheet and cell that needs to be fixed.
+- `list_ippo_tables()` now captures and returns more meaningful warnings.
 - Update the internal Word document template SP logo block.
 
 # rippo 1.0.3
