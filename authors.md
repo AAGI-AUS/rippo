@@ -19,15 +19,15 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/AAGI-AUS/rippo/blob/v1.0.5/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/AAGI-AUS/rippo/blob/main/DESCRIPTION)
 
 Sparks A, Cao Z, Thorne B (2026). *rippo: Simplify AAGI-CU IPPO Register
-Updates*. R package version 1.0.5, <https://github.com/AAGI-AUS/rippo>.
+Updates*. R package version 1.0.6, <https://github.com/AAGI-AUS/rippo>.
 
     @Manual{,
       title = {rippo: Simplify AAGI-CU IPPO Register Updates},
       author = {Adam H. Sparks and Zhanglong Cao and Braden Thorne},
       year = {2026},
-      note = {R package version 1.0.5},
+      note = {R package version 1.0.6},
       url = {https://github.com/AAGI-AUS/rippo},
     }
