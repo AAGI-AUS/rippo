@@ -1,6 +1,5 @@
 # Update the AAGI-CU IPPO Register
 #
-
 # for macOS only as the R_drive path will not work with Windows in this config
 library(rippo)
 library(fs)
@@ -11,6 +10,11 @@ tl <- list_ippo_tables(
     dir_path_in = path(R_drive, "Projects"),
     sp = sp
 )
+
+# check the tables for issues in Excel or missing IPPO registers
+tl$Validation
+tl$No_IPPO
+
 create_ippo_report(
     tables_list = tl,
     outfile = "~/tmp/test_ippo.docx",
