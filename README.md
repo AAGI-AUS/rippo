@@ -120,6 +120,10 @@ tl <- list_ippo_tables(
 create_ippo_report(tables_list = tl, outfile = ippo_doc, sp = sp)
 ```
 
+## Update Script
+
+An R script, `update_register.R`, is available in `inst` for AAGI-CU to easily update the IPPO register document.
+
 ## Contributions
 
 All contributions are appreciated, but please make sure to follow the [Contribution Guidelines](CONTRIBUTING.md).
