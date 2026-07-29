@@ -8,7 +8,7 @@
   "codeRepository": "https://github.com/AAGI-AUS/rippo",
   "issueTracker": "https://github.com/AAGI-AUS/rippo/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -276,7 +276,7 @@
   },
   "applicationCategory": "Tools",
   "isPartOf": "https://grdc.com.au/research/partnerships-and-initiatives/strategic-partnerships/aagi",
-  "fileSize": "404.571KB",
+  "fileSize": "411.161KB",
   "releaseNotes": "https://github.com/AAGI-AUS/rippo/blob/main/NEWS.md",
   "readme": "https://github.com/AAGI-AUS/rippo/blob/main/README.md",
   "contIntegration": "https://github.com/AAGI-AUS/rippo/actions/workflows/R-CMD-check.yaml"
