@@ -364,6 +364,18 @@ list_ippo_tables <- function(dir_path_in, sp) {
                     .name_repair = "minimal"
                 )
             },
+            warning = function(w) {
+                cli::cli_alert_warning(
+                    paste(
+                        project,
+                        workbook,
+                        sheet,
+                        conditionMessage(w)
+                    )
+                )
+
+                invokeRestart("muffleWarning")
+            },
             error = function(e) {
                 cli::cli_abort(
                     c(
