@@ -22,7 +22,6 @@
 #' @param asreml `Boolean` cite the \pkg{ASReml-R} package? Defaults to
 #'  `FALSE`.
 #' @examplesIf interactive()
-#' # after opening an RStudio project for a Service and Support Analysis
 #'
 #' create_table_3()
 #'
@@ -43,27 +42,27 @@ create_table_3 <- function(
     digger = FALSE,
     asreml = FALSE
 ) {
-    # check if the path is a valid directory
     if (!dir.exists(project_path)) {
         cli::cli_abort("the specified path does not exist.")
     }
 
-    # set the working directory to the specified path
     withr::with_dir(project_path, setwd(project_path))
 
-    ### extract package information from cran database
     db <- tools::CRAN_package_db()[, c(
         "Package",
         "Author",
         "Description",
         "License"
     )]
+
     pkgs <- unique(renv::dependencies()$Package)
 
-    out <- vector(mode = "list", length = length(pkgs))
+    out <- vector("list", length(pkgs))
+    names(out) <- pkgs
 
     for (pkg in pkgs) {
         pkg_info <- db[db$Package == pkg, ]
+
         if (nrow(pkg_info) > 0L) {
             author_clean <- gsub("\\s*<[^>]+>", "", pkg_info$Author)
             author_clean <- gsub("()", "", author_clean, fixed = TRUE)
@@ -72,24 +71,27 @@ create_table_3 <- function(
                 " ",
                 gsub("\n", " ", author_clean, fixed = TRUE)
             )
+
             description_clean <- gsub(
                 "\\s*<[^>]+>",
                 "",
                 pkg_info$Description
             )
+
             description_clean <- gsub(
                 "()",
                 "",
                 description_clean,
                 fixed = TRUE
             )
+
             description_clean <- gsub(
                 "\\s+",
                 " ",
                 gsub("\n", " ", description_clean, fixed = TRUE)
             )
 
-            out[[pkg]] <- data.frame(
+            out[[pkg]] <- tibble::tibble(
                 V1 = aagi_project_code,
                 V2 = author_clean,
                 V3 = paste0(
@@ -107,12 +109,7 @@ create_table_3 <- function(
                     pkg_info$License,
                     " licence"
                 ),
-                V7 = paste0(
-                    "Subject to the terms of the ",
-                    pkg_info$License,
-                    " licence."
-                ),
-                stringsAsFactors = FALSE
+                V7 = licence_restrictions(pkg_info$License)
             )
         }
     }
@@ -120,59 +117,168 @@ create_table_3 <- function(
     out <- dplyr::bind_rows(out)
 
     if (quarto) {
-        quarto <- tibble::new_tibble(
-            list(
-                V1 = aagi_project_code,
-                V2 = "Posit Software, PBC",
-                V3 = "Quarto, open-source tools for scientific and technical publishing",
-                V4 = as.Date("2023-07-18"),
-                V5 = "",
-                V6 = "Version 1.3 (and earlier) is licensed under the GNU GPL v2. Quarto version 1.4 is licensed under the MIT licence.",
-                V7 = "Subject to the terms of the licence under which the version was released."
+        quarto <- tibble::tibble(
+            V1 = aagi_project_code,
+            V2 = "Posit Software, PBC",
+            V3 = "Quarto, open-source tools for scientific and technical publishing",
+            V4 = as.Date("2023-07-18"),
+            V5 = "",
+            V6 = paste(
+                "Version 1.3 (and earlier) is licensed under the GNU GPL v2.",
+                "Quarto version 1.4 is licensed under the MIT licence."
+            ),
+            V7 = paste(
+                "Quarto version 1.3 and earlier are released under GPL v2,",
+                "which requires source code to be made available when modified",
+                "versions are distributed. Version 1.4 and later are released",
+                "under the MIT licence, which permits redistribution and",
+                "commercial use without requiring source code disclosure."
             )
         )
-        out <- rbind(out, quarto)
+
+        out <- dplyr::bind_rows(out, quarto)
     }
 
     if (digger) {
-        digger <- tibble::new_tibble(
-            list(
-                V1 = aagi_project_code,
-                V2 = "Neil Coombes [aut, ctb]",
-                V3 = "{DiGGer}, searches for efficient experimental designs under specified blocking and correlation.",
-                V4 = as.Date("2023-07-18"),
-                V5 = "",
-                V6 = "NSW DPI freeware licence",
-                V7 = "Subject to the terms of the NSW DPI freeware licence."
+        digger <- tibble::tibble(
+            V1 = aagi_project_code,
+            V2 = "Neil Coombes [aut, ctb]",
+            V3 = "{DiGGer}, searches for efficient experimental designs under specified blocking and correlation.",
+            V4 = as.Date("2023-07-18"),
+            V5 = "",
+            V6 = "NSW DPI freeware licence",
+            V7 = paste(
+                "Use and redistribution are permitted under the NSW DPI",
+                "freeware licence. The software may not be commercialised,",
+                "must be distributed complete and unmodified, and any source",
+                "code supplied for reference purposes may not be redistributed",
+                "without written permission from NSW DPI."
             )
         )
-        out <- rbind(out, digger)
+
+        out <- dplyr::bind_rows(out, digger)
     }
 
     if (asreml) {
-        asremlr <- tibble::new_tibble(
-            list(
-                V1 = aagi_project_code,
-                V2 = "VSN International Ltd",
-                V3 = "{ASReml-R} Version 4 package is for conducting mixed model analysis in R.",
-                V4 = as.Date("2023-07-18"),
-                V5 = "",
-                V6 = "Commercial",
-                V7 = "Subject to the terms of the commercial licence."
+        asremlr <- tibble::tibble(
+            V1 = aagi_project_code,
+            V2 = "VSN International Ltd",
+            V3 = "{ASReml-R} Version 4 package is for conducting mixed model analysis in R.",
+            V4 = as.Date("2023-07-18"),
+            V5 = "",
+            V6 = "Commercial",
+            V7 = paste(
+                "Use is restricted to licensed users under the commercial",
+                "licence agreement with VSN International.",
+                "Redistribution or commercialisation may require additional",
+                "permissions from the copyright holder."
             )
         )
-        out <- rbind(out, asremlr)
+
+        out <- dplyr::bind_rows(out, asremlr)
     }
 
-    names(out) <-
-        c(
-            "AAGI Project Code",
-            "`Owner/s\nProvide details of owner(s) including legal entity name and ABN",
-            "Description",
-            "Date made available to Project",
-            "Name of party making Third Party IP available (if not the owner(s))",
-            "Arrangements applicable to the provision of Third Party IP for the Project",
-            "Restrictions / limitations on use for dissemination or Commercialisation of Project Outputs"
+    names(out) <- c(
+        "AAGI Project Code",
+        "`Owner/s\nProvide details of owner(s) including legal entity name and ABN",
+        "Description",
+        "Date made available to Project",
+        "Name of party making Third Party IP available (if not the owner(s))",
+        "Arrangements applicable to the provision of Third Party IP for the Project",
+        "Restrictions / limitations on use for dissemination or Commercialisation of Project Outputs"
+    )
+
+    out
+}
+
+licence_restrictions <- function(licence) {
+    licence_upper <- toupper(licence)
+
+    if (grepl("AGPL", licence_upper)) {
+        return(
+            paste(
+                "Licensed under the GNU Affero General Public Licence.",
+                "If modified versions are used to provide services over a network,",
+                "the corresponding source code must be made available to users.",
+                "Dissemination or commercialisation of project outputs must comply",
+                "with the terms of the AGPL licence."
+            )
         )
-    return(out)
+    }
+
+    if (grepl("GPL", licence_upper)) {
+        return(
+            paste(
+                "Licensed under the GNU General Public Licence.",
+                "If modified versions are distributed, the corresponding source",
+                "code must also be made available under the GPL.",
+                "Dissemination or commercialisation of project outputs must comply",
+                "with the terms of the GPL licence."
+            )
+        )
+    }
+
+    if (grepl("MIT", licence_upper)) {
+        return(
+            paste(
+                "Licensed under the MIT licence.",
+                "Use, modification and redistribution are permitted, including",
+                "for commercial purposes, provided copyright and licence notices",
+                "are retained.",
+                "There is no requirement to distribute source code."
+            )
+        )
+    }
+
+    if (grepl("APACHE", licence_upper)) {
+        return(
+            paste(
+                "Licensed under the Apache 2.0 licence.",
+                "Use, modification and redistribution are permitted, including",
+                "for commercial purposes, provided copyright, attribution and",
+                "licence notices are retained.",
+                "The licence includes an express patent grant and does not",
+                "require source code to be distributed."
+            )
+        )
+    }
+
+    if (grepl("BSD", licence_upper)) {
+        return(
+            paste(
+                "Licensed under a BSD licence.",
+                "Use, modification and redistribution are permitted, including",
+                "for commercial purposes, provided copyright and attribution",
+                "notices are retained.",
+                "There is no requirement to distribute source code."
+            )
+        )
+    }
+
+    if (grepl("LPPL", licence_upper)) {
+        return(
+            paste(
+                "Licensed under the LaTeX Project Public Licence.",
+                "Modified versions must be clearly identified and must not be",
+                "misrepresented as the original work."
+            )
+        )
+    }
+
+    if (grepl("CC BY", licence_upper)) {
+        return(
+            paste(
+                "Licensed under a Creative Commons Attribution licence.",
+                "Redistribution and adaptation are permitted provided appropriate",
+                "attribution is given."
+            )
+        )
+    }
+
+    paste(
+        "Dissemination or commercialisation of project outputs must comply",
+        "with the terms of the",
+        licence,
+        "licence."
+    )
 }

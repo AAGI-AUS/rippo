@@ -180,6 +180,71 @@ list_ippo_tables <- function(dir_path_in, sp) {
         as.Date(NA)
     }
 
+    normalise_licence_restrictions <- function(x) {
+        x <- as.character(x)
+
+        gpl_text <- paste(
+            "Licensed under the GNU General Public Licence.",
+            "If modified versions are distributed, the corresponding source",
+            "code must also be made available under the GPL.",
+            "Dissemination or commercialisation of project outputs must comply",
+            "with the terms of the GPL licence."
+        )
+
+        agpl_text <- paste(
+            "Licensed under the GNU Affero General Public Licence.",
+            "If modified versions are used to provide services over a network,",
+            "the corresponding source code must be made available to users.",
+            "Dissemination or commercialisation of project outputs must comply",
+            "with the terms of the AGPL licence."
+        )
+
+        mit_text <- paste(
+            "Licensed under the MIT licence.",
+            "Use, modification and redistribution are permitted, including",
+            "for commercial purposes, provided copyright and licence notices",
+            "are retained.",
+            "There is no requirement to distribute source code."
+        )
+
+        apache_text <- paste(
+            "Licensed under the Apache 2.0 licence.",
+            "Use, modification and redistribution are permitted, including",
+            "for commercial purposes, provided copyright, attribution and",
+            "licence notices are retained.",
+            "The licence includes an express patent grant and does not",
+            "require source code to be distributed."
+        )
+
+        dplyr::case_when(
+            grepl(
+                pattern = "GNU AFFERO GENERAL PUBLIC LICENSE",
+                x = x,
+                ignore.case = TRUE
+            ) ~ agpl_text,
+
+            grepl(
+                pattern = "GPL",
+                x = x,
+                ignore.case = TRUE
+            ) ~ gpl_text,
+
+            grepl(
+                pattern = "MIT",
+                x = x,
+                ignore.case = TRUE
+            ) ~ mit_text,
+
+            grepl(
+                pattern = "APACHE",
+                x = x,
+                ignore.case = TRUE
+            ) ~ apache_text,
+
+            TRUE ~ x
+        )
+    }
+
     validate_column_count <- function(
         data,
         expected_ncol,
@@ -646,6 +711,25 @@ list_ippo_tables <- function(dir_path_in, sp) {
         expected_ncol = 8L,
         numeric_columns = 1L,
         date_columns = 5L
+    )
+
+    table_3 <- lapply(
+        X = table_3,
+        FUN = function(tbl) {
+            if (!is.data.frame(tbl)) {
+                return(tbl)
+            }
+
+            if (ncol(tbl) < 8L) {
+                return(tbl)
+            }
+
+            tbl[[8]] <- normalise_licence_restrictions(
+                tbl[[8]]
+            )
+
+            tbl
+        }
     )
 
     table_4 <- read_ippo_table(
